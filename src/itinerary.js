@@ -41,25 +41,25 @@
 			});
 		},
 
-		// onAdd: function(map) {
-		// 	var collapsible = this.options.collapsible;
+		onAdd: function(map) {
+			var collapsible = this.options.collapsible;
 
-		// 	collapsible = collapsible || (collapsible === undefined && map.getSize().x <= 640);
+			collapsible = collapsible || (collapsible === undefined && map.getSize().x <= 640);
 
-		// 	this._container = L.DomUtil.create('div', 'leaflet-routing-container leaflet-bar ' +
-		// 		(!this.options.show ? 'leaflet-routing-container-hide ' : '') +
-		// 		(collapsible ? 'leaflet-routing-collapsible ' : '') +
-		// 		this.options.containerClassName);
-		// 	this._altContainer = this.createAlternativesContainer();
-		// 	this._container.appendChild(this._altContainer);
-		// 	L.DomEvent.disableClickPropagation(this._container);
-		// 	L.DomEvent.addListener(this._container, 'mousewheel', function(e) {
-		// 		L.DomEvent.stopPropagation(e);
-		// 	});
+			this._container = L.DomUtil.create('div', 'leaflet-routing-container leaflet-bar ' +
+				(!this.options.show ? 'leaflet-routing-container-hide ' : '') +
+				(collapsible ? 'leaflet-routing-collapsible ' : '') +
+				this.options.containerClassName);
+			this._altContainer = this.createAlternativesContainer();
+			this._container.appendChild(this._altContainer);
+			L.DomEvent.disableClickPropagation(this._container);
+			L.DomEvent.addListener(this._container, 'mousewheel', function(e) {
+				L.DomEvent.stopPropagation(e);
+			});
 
-		// 	if (collapsible) {
-		// 		this.options.collapseBtn(this);
-		// 	}
+			if (collapsible) {
+				this.options.collapseBtn(this);
+			}
 
 		// 	return this._container;
 		// },
